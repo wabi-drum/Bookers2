@@ -34,7 +34,7 @@
           <%= link_to "Bookers", root_path %>
         </li>
         <li>
-          <%= link_to "Home", user_path %>
+          <%= link_to "Home", user_path(user.id) %>
         </li>
         <li>
           <%= link_to "About", about_path %>
@@ -45,6 +45,7 @@
         <li>
           <%= link_to "Log In", new_user_session_path %>
         </li>
+      <% end %>
     </header>
     <%= yield %>
   </body>
