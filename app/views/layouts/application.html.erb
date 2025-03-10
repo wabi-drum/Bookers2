@@ -12,74 +12,44 @@
 
   <body>
 
+      <header>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to "Bookers", root_path %>
+          </li>
+          <li>
+            <%= link_to "Home", user_path(current_user.id) %>
+          </li>
+          <li>
+            <%= link_to "Users", users_path %>
+          </li>
+          <li>
+            <%= link_to "Books", books_path %>
+          </li>
+          <li>
+            <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "Bookers", root_path %>
+          </li>
+          <li>
+            <%= link_to "Home", root_path %>
+          </li>
+          <li>
+            <%= link_to "About", about_path %>
+          </li>
+          <li>
+            <%= link_to "Sign Up", new_user_registration_path %>
+          </li>
+          <li>
+            <%= link_to "Log In", new_user_session_path %>
+          </li>
+        <% end %>
+      </header>
   <main>
-
-    <header>
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to "Bookers", root_path %>
-        </li>
-        <li>
-          <%= link_to "Home", user_path(current_user.id) %>
-        </li>
-        <li>
-          <%= link_to "Users", users_path %>
-        </li>
-        <li>
-          <%= link_to "Books", books_path %>
-        </li>
-        <li>
-          <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to "Bookers", root_path %>
-        </li>
-        <li>
-          <%= link_to "Home", root_path %>
-        </li>
-        <li>
-          <%= link_to "About", about_path %>
-        </li>
-        <li>
-          <%= link_to "Sign Up", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "Log In", new_user_session_path %>
-        </li>
-      <% end %>
-    </header>
-    <div>
-      <% if user_signed_in? %>
-        <div class="col-md-3">
-          <h2>User info</H2>
-          <table class="table">
-            <tbody>
-              <tr>
-                <th>name</th>
-                <th><%= current_user.name %></th>
-              </tr>
-              <tr>
-                <th><%= current_user.introduction %></th>
-              </tr> 
-            </tbody>
-          </table>
-  
-          <h2 class="mt-3">New book</h2>
-            <%= form_with model: @book do |f| %>
-              <h4>Title</h4>
-              <%= f.text_field :title %>
-  
-              <h4>Opinion</h4>
-              <%= f.text_area :opinion %>
-  
-              <%= f.submit 'Create Book' %>
-           <% end %>
-        </div>
-      <% end %>
-    </div>
-    <%= yield %>
-  </main>      
+  <%= yield %>      
+  </main>  
 
   <footer>
     <div class="container mt-5">
@@ -90,7 +60,6 @@
       </div>
     </div>
   </footer>
-
-  </body>
+</body>
 
 </html>
