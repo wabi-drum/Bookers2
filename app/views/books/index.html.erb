@@ -12,10 +12,10 @@
       </tr>
     </thead>
     <tbody>
-      <%= @books.each do |book| %>
+      <% @books.each do |book| %>
         <tr>
           <td>
-            <%= book.user.get_profile_image(80,80) %>
+            <%= image_tag book.user.get_profile_image(80,80) %>
           </td>
           <td>
             <%= book.title %>
