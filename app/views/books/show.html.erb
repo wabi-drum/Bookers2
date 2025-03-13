@@ -1,1 +1,19 @@
-<%= render '/users/sidebar', book: @book, user: @user %>
+<div class="container">
+  <div class="row">
+    <%= render '/users/sidebar', book: @book, user: @user %>
+  
+    <div class="col-md-8 offseet-md-1">
+      <h2>Book detail</h2>
+      <table class="table">
+        <tbody>
+          <% if @book.user_id == current_user.id %>
+          <tr>
+            <td><%= link_to image_tag @user.get_profile_image(100,100)<br>"#{@user.name}", user_path(@user.id) %></td>
+          </tr>
+          <% else %>
+          <tr>
+            <td>shit</td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
