@@ -8,7 +8,10 @@
         <tbody>
           <% if @book.user_id == current_user.id %>
           <tr>
-            <td><%= link_to image_tag @user.get_profile_image(100,100)<br>"#{@user.name}", user_path(@user.id) %></td>
+            <td>
+              <%= link_to user_path(@user.id) do %>
+                <%= image_tag @user.get_profile_image(100,100) %><br><%= "#{@user.name}" %> 
+            </td>
           </tr>
           <% else %>
           <tr>
