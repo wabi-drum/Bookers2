@@ -6,11 +6,12 @@
       <h2>Book detail</h2>
       <table class="table">
         <tbody>
-          <% if @book.user_id == current_user.id %>
+          <% if @user.id == current_user.id %>
           <tr>
             <td>
               <%= link_to user_path(@user.id) do %>
-                <%= image_tag @user.get_profile_image(100,100) %><br><%= "#{@user.name}" %> 
+                <%= image_tag @user.get_profile_image(100,100) %><br><%= "#{@user.name}" %>
+              <% end %> 
             </td>
           </tr>
           <% else %>
