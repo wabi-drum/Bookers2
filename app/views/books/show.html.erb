@@ -1,23 +1,23 @@
 <div class="container">
   <div class="row">
-    <%= render '/users/sidebar', book: @book, user: @user %>
+    <%= render '/users/sidebar', book: @book_new, user: @user %>
   
     <div class="col-md-8 offseet-md-1">
       <h2>Book detail</h2>
       <table class="table">
         <tbody>
-          <% if @user.id == current_user.id %>
+        <% if @user.id == current_user.id %>
           <tr>
             <td>
               <%= link_to user_path(@user.id) do %>
-                <%= image_tag @user.get_profile_image(100,100) %><br><%= "#{@user.name}" %>
+              <%= image_tag @user.get_profile_image(100,100) %><br><%= "#{@user.name}" %>
               <% end %> 
             </td>
           </tr>
-          <% else %>
+        <% else %>
           <tr>
             <td>shit</td>
           </tr>
-          <% end %>
+        <% end %>
         </tbody>
       </table>
