@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h1>Editing Book</h1>
+      <%= form_with model: @book do |book| %>
+        <label for="book_title">Title</label>
+        <%= book.text_field :title %>
+        <label for="book_opinion">Opinion</label>
+        <%= book.text_area :body %>
+        <%= book.submit "Update Book" %>
+      <% end %>
+    </div>
+  </div>
+</div>
