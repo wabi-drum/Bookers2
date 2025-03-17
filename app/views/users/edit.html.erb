@@ -4,8 +4,13 @@
         <h2>User info</h2>
         <%= form_with model: @user do |user| %>
           <label for="user_name">Name</label>
-          <%= user.text_field %>
+          <%= user.text_field :name %>
           <label for="user_image">Image</label>
+          <%= user.file_field :profile_image, accept: "image/*" %>
+          <label for="user_introduction">Introduction</label>
+          <%= user.text_field :introduction %> 
+          <%= user.submit 'Update User', class: 'btn btn-secondary' %>
+        <% end %>
       </div>
     </div>
   </div>
